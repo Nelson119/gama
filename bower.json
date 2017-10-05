@@ -1,0 +1,43 @@
+{
+  "name": "frontend-template",
+  "private": true,
+  "dependencies": {
+    "modernizr": "~2.8.1",
+    "detectizr": "^2.2.0",
+    "bootstrap": "^3.3.7",
+    "bootstrap-sass": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "slick-carousel": "^1.8.0",
+    "gsap": "^1.20.2",
+    "malihu-custom-scrollbar-plugin": "^3.1.5",
+    "jquery": "1.12",
+    "parallax": "^2.1.3"
+  },
+  "overrides": {
+    "slick-carousel": {
+      "main": [
+        "slick/fonts/*",
+        "slick/slick.js",
+        "slick/slick.scss",
+        "slick/slick-theme.scss"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "less/font-awesome.less",
+        "scss/font-awesome.scss",
+        "fonts/*"
+      ]
+    },
+    "gsap": {
+      "main": "./src/minified/TweenMax.min.js"
+    },
+    "parallax": {
+      "main": "./deploy/parallax.js"
+    }
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2"
+  }
+}

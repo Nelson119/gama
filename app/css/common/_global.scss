@@ -1,0 +1,58 @@
+&#content{
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-feature-settings: "liga";
+	font-style: normal;
+	text-rendering: optimizelegibility;
+	letter-spacing:0.5px;
+	word-spacing:0.5px;
+	overflow-x:hidden;
+	position:relative;
+	min-width: 320px;
+    background: $body-bg;
+	color: $text-color;
+	font-family: $font-family-sans-serif;
+
+    @media screen and (max-width: 1000px) {
+        background: #04091D;
+    }
+    >*{
+        opacity: 0;
+        filter: blur(5px);
+        position: relative;
+    }
+    &:before{
+        content: '';
+        @include SubItem();
+        background: $body-bg;
+    }
+
+    &.loaded{
+        >*{
+            opacity: inherit;
+            transition-duration: 0.5s;
+            filter: none;
+        }
+    }
+    .side-banner{
+        position: fixed;
+        right: 0;
+        top: 50%;
+        z-index: 10;
+        &:hover{
+            filter: drop-shadow(0 0 3px #ffebd4);
+        }
+        &.scrolling{
+            opacity: 0.45;
+            transform: translateX(70%);
+        }
+    }
+
+    figure[data-src], img[data-src]{
+        opacity: 0;
+        transition-duration: 0.3s;
+        &.loaded{
+            opacity: 1;
+        }
+    }
+}

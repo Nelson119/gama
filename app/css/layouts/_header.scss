@@ -1,0 +1,63 @@
+header {
+	background: rgba(17, 32, 65, 0.6);
+	&:hover{
+		background: rgb(17, 32, 65);
+	}
+	@media screen and (max-width: 1000px) {
+		background: rgb(17, 32, 65);
+	}
+	nav{
+		height: em(100, 22);
+		font-size: 22px;
+		width: 1200px;
+		margin: 0 auto;
+        @media screen and (max-width: 1000px) {
+			font-size: em(18,14);
+			font-size: vwxs(36, 1000);
+        }
+		a{
+			height: 2em;
+			padding-right: em(60, 22);
+			padding-top: 0.5em;
+			position: relative;
+			color: rgba(255,255,255,0.8);
+			transition-duration: 0.3s;
+			@media screen and (max-width: 1399px) {
+				padding-right: em(30, 22);
+				padding-left: em(30, 22);
+			}
+			@media screen and (max-width: 1000px) {
+				padding-right: em(30, 22);
+				padding-left: em(30, 22);
+			}
+			&+a{
+				padding-left: em(60, 22);
+				@media screen and (max-width: 1000px) {
+					padding-left: em(30, 22);
+				}
+				&:before{
+					content: '';
+					width: 0;
+					height: 1em;
+					margin-top: 0.5em;
+					position: absolute;
+					top: 0;
+					left: 0;
+					border-left: 1px solid #fff;
+				}
+			}
+			&:hover{
+				color: rgba(255,255,255,1);
+				text-shadow: 0 0 1px rgba(255,255,255,0.5);
+			}
+		}
+	}
+}
+&.fixed-menu#content{
+	>header {
+		position: fixed;
+		z-index: 10;
+		top: 0;
+		width: 100%;
+	}
+}
