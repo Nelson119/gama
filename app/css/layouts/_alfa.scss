@@ -1,0 +1,46 @@
+.alfa{
+    @include Item(700, 160, 0, 'auto', 0, 'auto', 750, 'fit', 'relative');
+    margin: 0 auto;
+    height: auto;
+	.item{
+		font-size: 30px;
+		@media screen and (max-width: 800px) {
+			font-size: vwxs(30, 750);
+			font-size: 16px;
+		}
+		margin-bottom: em(85,30);
+
+		h3{
+			font-size: em(40, 30);
+			height: em(50, 30);
+			line-height: em(50, 30);
+			width: em(225, 30);
+			background-color: #ff7900;
+			border-radius: em(5, 30);
+			text-align: center;
+		}
+		p{
+			font-size: 1em;
+			background-color: #fff;
+			border-radius: em(5, 30);
+			color: #858585;
+			padding: 1em;
+			@media screen and (min-width: 801px) {
+				display: inline-block;
+				width: 45%;
+			}
+		}
+		a{
+			font-size: em(40, 30);
+			border-radius: em(5, 30);
+			text-align: center;
+			border: em(2, 30) solid #fff;
+			display: block;
+			background-color: #ff5c01;
+			@media screen and (min-width: 801px) {
+				display: inline-block;
+				width: 45%;
+			}
+		}
+	}
+}
