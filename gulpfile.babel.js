@@ -53,9 +53,9 @@ gulp.task('html', ['sub'], () => {
         // .pipe($.ignore.exclude(/vendor\.js$/))
         // .pipe($.ignore.exclude(/vendor\.css$/))
         .pipe($.uniqueFiles())
-        .pipe($.if(/\.js$/, $.uglify()))
-        .pipe($.if(/\.css$/, $.cssnano()))
-        .pipe($.if(/\.html$/, $.htmlmin({ collapseWhitespace: true })))
+        // .pipe($.if(/\.js$/, $.uglify()))
+        // .pipe($.if(/\.css$/, $.cssnano()))
+        // .pipe($.if(/\.html$/, $.htmlmin({ collapseWhitespace: true })))
         // .pipe($.debug())
         .pipe(gulp.dest('dist'));
 });
@@ -115,8 +115,8 @@ gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 gulp.task('baker', function() {
     return gulp.src(['app/**/*-tpl.html'])
-        .pipe($.replace('@@include(\'dotcom/front.html\')', ''))
-        .pipe($.replace('@@include(\'dotcom/butt.html\')', ''))
+        // .pipe($.replace('@@include(\'dotcom/front.html\')', ''))
+        // .pipe($.replace('@@include(\'dotcom/butt.html\')', ''))
         .pipe($.fileInclude())
         .pipe($.replaceName(/[-]tpl.html/ig, '.html'))
         // .pipe($.replace(/\/content\/dam\/samsung\/tw\/(.*)(\.(png|jpg|gif|jpeg))/ig, '//images.samsung.com/is/image/samsung/p5/tw/$1$2?$ORIGIN_PNG$'))
@@ -197,7 +197,7 @@ gulp.task('wiredep', () => {
 gulp.task('embed', ['html', 'img', 'fonts', 'extras'], () => {
     return gulp.src('dist/**/*.html')
             .pipe($.debug())
-            .pipe($.embed())
+            // .pipe($.embed())
             .pipe($.debug())
             .pipe(gulp.dest('dist'));
 });

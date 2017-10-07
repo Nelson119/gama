@@ -1,18 +1,18 @@
 $icon-font-path: '../fonts/';
 @import "common/webfonts";
 @import "common/override";
-[role=main]{
-    // bower:scss
-    @import "vendor/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
-    @import "vendor/font-awesome/scss/font-awesome.scss";
-    @import "vendor/slick-carousel/slick/slick.scss";
-    @import "vendor/slick-carousel/slick/slick-theme.scss";
-    // endbower
-    @import "common/variables";
-    @import "common/global";
-    @import "layouts/header";
-    @import "layouts/footer";
-    @import "layouts/kv";
-    @import "layouts/main";
-    @import "layouts/anime";
+// bower:scss
+// @import "vendor/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "vendor/font-awesome/scss/font-awesome.scss";
+// endbower
+@import "common/variables";
+@import "common/global";
+@import "layouts/header";
+@import "layouts/footer";
+@import "layouts/kv";
+@import "layouts/main";
+@import "layouts/anime";
+body{
+    margin: 0;
+    padding: 0;
 }

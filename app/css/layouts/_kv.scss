@@ -2,97 +2,56 @@
     background-color: #122244;
     position: relative;
     z-index: 2;
-    .border-top, .border-bottom{
-        display: block;
-        background-size: 100% auto;
-        background-position: center bottom;
-        background-repeat: no-repeat;
-        height: 4px;
-    }
     >img{
         width: 100%;
         height: auto;
     }
-    @media screen and (max-width: 1000px) {
-        margin-top: per(315, 1000);
-    }
 }
 .kv{
-    @include Item(1920, 751, 0, 0, 0, 0, 1920, 'fit', 'relative');
+    @include Item(750, 908, 0, 0, 0, 0, 750, 'fit', 'relative');
     overflow: hidden;
-    .background{
-        @include SubItem();
+    background-size: cover;
+    img{
+        @include SubImgW();
     }
-    @media screen and (max-width: 1000px) {
-        @include SubItem();
-    }
-	.tagline{
-		background: rgba(0,0,0,0.8);
-		display: block;
-        font-size: em(14, 14);
-        height: em(100, 14);
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        margin: 0;
-        z-index: 2;
-        @media screen and (max-width: 1299px)  and (min-width: 1001px) {
-            img{
-                max-width: 100%;
-            }
-        }
-        @media screen and (max-width: 1000px) {
-            @include Item(1000, 320, -315, 0, 0, 0, 1000, 'fit', 'absolute');
-        }
-        img{
-            @media screen and (max-width: 1000px) {
-                @include Item(843, 0, 30, 0, 0, 82, 1000, 'fit', 'absolute');
-                height: auto;
-            }
-        }
-    }
-    .parallax{
-        @include SubItem();
-    }
-    figure{
+
+    .kv-1{
+        @include Item(334, 225, 283, 0, 0, 106, 750, 'fit', 'absolute');
         background-size: cover;
-        img{
-            @include SubImgW();
-            transform: scale(0.95);
-            &.loaded{
-                transform: none;
+    }
+    .cf{
+        @include Item(64, 32, 100, 0, 0, 200, 750,'fit','absolute');
+        figure{
+            @include SubItem();
+            background-size: 300% 1800%;
+            background-position: 0 0;
+            background-color: #000;
+            // @include animation(
+            //     playcf 8s infinite steps(1) backwards 0s
+            // );
+        }
+        &:hover{
+            figure{
+                animation: playcf 8s infinite steps(1) forwards 0s;
             }
+
         }
     }
-    .tara{
-        @include Item(333, 268, 483, 0, 0, 1096, 1920, 'fit', 'absolute');
-    }
-    .vera{
-        @include Item(411, 191, 166, 0, 0, 1246, 1920, 'fit', 'absolute');
-    }
-    .maros{
-        @include Item(990, 674, 78, 0, 0, 930, 1920, 'fit', 'absolute');
-    }
-    .blade{
-        @include Item(366, 429, 86, 0, 0, 620, 1920, 'fit', 'absolute');
-    }
-    .iong{
-        @include Item(1507, 659, 91, 0, 0, 251, 1920, 'fit', 'absolute');
-    }
-    .gs8plus{
-        @include Item(231, 553, 323-170, 0, 0, 444, 1920, 'fit', 'absolute');
-    }
-    .gn8{
-        @include Item(366, 636, 323-170, 0, 0, 1242, 1920, 'fit', 'absolute');
-    }
-    .garena-logo{
-        @include Item(427, 168, 556, 0, 0, 750, 1920, 'fit', 'absolute');
-        @media screen and (max-width: 1000px) {
-            @include Item(629, 247, 849, 0, 0, 183, 1000, 'fit', 'absolute');
+}
+@include keyframes( playcf ){
+
+    $row: 0;
+    $col: 0;
+    @for $i from 1 through 52 {
+        #{$i * 100 / 52}% {
+            background-position: #{$col*-100%} #{$row*-100%};
         }
-        img{
-            @include SubImgW();
+        @if( $i % 3 == 0){
+            $row: $row + 1;
+            $col: 0;
+        }@else{
+            $col: $col + 1;
         }
+
     }
 }
